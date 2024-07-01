@@ -35,7 +35,7 @@
 
 // const addTwo = (num1,num2)=>{  //arrow funtion it is denoted by (=>)
     // return num1+num2
-}
+// }
 
 // const addTwo = (num1,num2) => num1+num2 //arrow function
 
