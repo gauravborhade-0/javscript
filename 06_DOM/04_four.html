@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #121212;  color: aliceblue;">
+    <ul class="language">
+        <li>Javascript</li>
+
+    </ul>
+</body>
+<script>
+    function addLanguage(languagename) {
+        const li = document.createElement('li')
+        li.innerHTML = `${languagename}`
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addLanguage('Python') //1
+    addLanguage('golang') //2
+
+    function addoptilang(languagename){  //This is optimal way to write function to  save memory
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(languagename))
+        document.querySelector('.language').appendChild(li)
+    }
+    addoptilang('Java');  //3
+
+    //edit
+    const secondlang = document.querySelector("li:nth-child(2)")
+    console.log(secondlang);
+    // secondlang.innerHTML = "Mojo"      //Not a efficent way to replaced a value
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"  //4
+    secondlang.replaceWith(newli)
+
+    // //edit
+    const firstlang = document.querySelector("li:first-child")
+    firstlang.outerHTML = '<li>typescript</li>'
+
+
+    //Remove
+    const lastlang = document.querySelector("li:last-child")
+    lastlang.remove()
+</script>
+</html>
