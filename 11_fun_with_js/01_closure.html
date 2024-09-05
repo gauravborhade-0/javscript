@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="red">red</button>
+</body>
+<script>
+    // lexical scope example
+    // function init(){
+    //     let name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //         displayName();
+    //     }
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "Gaurav";
+
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner",username);
+    //     }
+
+    //     function innerTwo (){
+    //         console.log("innerTwo",username);
+    //         // console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+    // }
+    // console.log("Too outer",username);
+    
+
+    function makefunc(){
+        const name = "Mozilla";
+        function displayName(){
+            console.log(name);
+        }
+        return displayName       //If we not use return keyword then we can't access a function inside fuction 
+    }
+
+    const myfunc = makefunc();
+    myfunc()
+</script>
+<script>
+    // document.getElementById("orange").onclick = function(){
+    //         document.body.style.backgroundColor = 'orange'
+    // }
+    // document.getElementById('red').onclick =function(){
+    //     document.body.style.background = 'red'
+    // }
+
+
+    function clickhandeled(color){
+        // document.body.style.backgroundColor = `${color}`
+
+        return function (){
+            document.body.style.backgroundColor = `${color}`
+
+        }
+    }
+
+    document.getElementById('orange').onclick = clickhandeled('orange')
+    document.getElementById('red').onclick = clickhandeled('red')
+
+</script>
+</html>
